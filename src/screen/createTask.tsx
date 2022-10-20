@@ -8,12 +8,10 @@ import {
   TextInput,
   TouchableOpacity,
 } from "react-native";
-import {
-  AntDesign,
-  Ionicons,
-  Feather,
-  MaterialIcons,
-} from "@expo/vector-icons";
+import { Ionicons, MaterialIcons } from "@expo/vector-icons";
+import { Header } from "../components/Header";
+import { Colors } from "../components/Colors";
+import { Button } from "../components/Button";
 
 export const CreateTask = () => {
   return (
@@ -23,11 +21,9 @@ export const CreateTask = () => {
         backgroundColor="#EBF5FB"
         barStyle="dark-content"
       />
-      <View style={styles.contentHeader}>
-        <AntDesign name="arrowleft" size={24} color="black" />
-        <Text style={styles.titleHeader}>Create a Task</Text>
-        <Feather name="menu" size={24} color="black" />
-      </View>
+
+      <Header />
+
       <View style={styles.contentNameStart}>
         <TextInput placeholder="Name" style={styles.textInput} />
         <View style={styles.contentInputs}>
@@ -84,23 +80,8 @@ export const CreateTask = () => {
             placeholder="Details"
           />
         </View>
-        <View style={styles.contentColors}>
-          <View style={styles.circle}>
-            <View style={styles.selectCircle}></View>
-          </View>
-          <View style={[styles.circle, { backgroundColor: "#00394C" }]}></View>
-          <View style={[styles.circle, { backgroundColor: "#004E8E" }]}></View>
-          <View style={[styles.circle, { backgroundColor: "#26BFBF" }]}></View>
-          <View style={[styles.circle, { backgroundColor: "#57E597" }]}></View>
-          <View style={[styles.circle, { backgroundColor: "#FF7A7B" }]}></View>
-          <View style={[styles.circle, { backgroundColor: "#FFB017" }]}></View>
-          <View style={[styles.circle, { backgroundColor: "#E48FFF" }]}></View>
-        </View>
-        <View style={styles.containerButton}>
-          <TouchableOpacity>
-            <Text style={styles.textButton}>Create</Text>
-          </TouchableOpacity>
-        </View>
+        <Colors />
+        <Button />
       </View>
     </SafeAreaView>
   );
@@ -110,17 +91,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#EBF5FB",
-  },
-  contentHeader: {
-    flex: 1,
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    paddingHorizontal: 25,
-  },
-  titleHeader: {
-    fontSize: 23,
-    fontWeight: "bold",
   },
   contentNameStart: {
     paddingVertical: 20,
@@ -165,44 +135,5 @@ const styles = StyleSheet.create({
   contentMultipleInputs: {
     paddingVertical: 20,
     paddingHorizontal: 25,
-  },
-  contentColors: {
-    flexDirection: "row",
-    borderTopWidth: 2,
-    borderBottomWidth: 2,
-    paddingVertical: 20,
-    borderColor: "#D6DBDF",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  circle: {
-    justifyContent: "center",
-    alignItems: "center",
-    borderRadius: 100,
-    width: 40,
-    height: 40,
-    backgroundColor: "#2FD1C5",
-    marginHorizontal: 7,
-  },
-  selectCircle: {
-    borderRadius: 100,
-    width: 20,
-    height: 20,
-    backgroundColor: "#fff",
-  },
-  containerButton: {
-    alignSelf: "center",
-    justifyContent: "center",
-    margin: "20%",
-    backgroundColor: "#2FD1C5",
-    borderRadius: 10,
-    width: 300,
-    height: 70,
-  },
-  textButton: {
-    color: "#fff",
-    fontSize: 20,
-    fontWeight: "bold",
-    textAlign: "center",
   },
 });
